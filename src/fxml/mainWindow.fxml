@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxControl.MainWindow">
+    <children>
+        <TabPane prefHeight="382.0" prefWidth="589.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab onSelectionChanged="#printAllCourses" text="Available courses">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <ListView fx:id="allCourses" layoutX="8.0" layoutY="10.0" prefHeight="341.0" prefWidth="263.0" />
+                                <Button fx:id="enrollBtn" layoutX="338.0" layoutY="35.0" mnemonicParsing="false" onAction="#enroll" prefHeight="28.0" prefWidth="150.0" text="Enroll to course" />
+                                <Button fx:id="viewCourseInfo" layoutX="338.0" layoutY="78.0" mnemonicParsing="false" onAction="#viewCourseInfo" prefHeight="32.0" prefWidth="151.0" text="View course Info" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="studCourse" onSelectionChanged="#printStudCourseInfo" text="My courses">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="429.0" layoutY="14.0" mnemonicParsing="false" onAction="#studLeaveCourse" prefHeight="25.0" prefWidth="149.0" text="Leave course" />
+                        <TreeView fx:id="courseTree" layoutX="14.0" layoutY="9.0" prefHeight="338.0" prefWidth="407.0" />
+                     </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="myCreatedCourses" onSelectionChanged="#printMyCourse" text="My created courses">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="356.0" prefWidth="483.0">
+                     <children>
+                        <Button layoutX="475.0" layoutY="14.0" mnemonicParsing="false" onAction="#createCourse" prefHeight="25.0" prefWidth="100.0" text="Create course" />
+                        <Button layoutX="475.0" layoutY="49.0" mnemonicParsing="false" onAction="#updateCourse" prefHeight="25.0" prefWidth="100.0" text="Update course" />
+                        <ListView fx:id="MyCourseInfo" layoutX="14.0" layoutY="9.0" prefHeight="329.0" prefWidth="278.0" />
+                        <Button layoutX="475.0" layoutY="85.0" mnemonicParsing="false" onAction="#deleteCourse" prefHeight="25.0" prefWidth="100.0" text="Delete course" />
+                        <Button layoutX="475.0" layoutY="117.0" mnemonicParsing="false" onAction="#viewMyCourseInfo" prefHeight="25.0" prefWidth="101.0" text="Course info" />
+                     </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            <Tab fx:id="folderFiles" onSelectionChanged="#printBox" text="Folder/Files">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TreeView fx:id="foldersTree" layoutX="14.0" layoutY="14.0" prefHeight="328.0" prefWidth="241.0" />
+                        <Button layoutX="425.0" layoutY="14.0" mnemonicParsing="false" onAction="#createFolder" prefHeight="25.0" prefWidth="150.0" text="Create folder" />
+                        <Button layoutX="425.0" layoutY="45.0" mnemonicParsing="false" onAction="#updateFolder" prefHeight="25.0" prefWidth="150.0" text="Change folder" />
+                        <Button layoutX="425.0" layoutY="76.0" mnemonicParsing="false" onAction="#deleteFolder" prefHeight="25.0" prefWidth="150.0" text="Delete folder" />
+                        <Button layoutX="425.0" layoutY="109.0" mnemonicParsing="false" onAction="#getFolderInfo" prefHeight="25.0" prefWidth="150.0" text="Get info folder" />
+                        <Button layoutX="425.0" layoutY="314.0" mnemonicParsing="false" onAction="#printFileInfo" prefHeight="25.0" prefWidth="150.0" text="File info" />
+                        <Button layoutX="425.0" layoutY="283.0" mnemonicParsing="false" onAction="#deleteFile" prefHeight="25.0" prefWidth="150.0" text="Delete file" />
+                        <Button layoutX="425.0" layoutY="251.0" mnemonicParsing="false" onAction="#editFile" prefHeight="25.0" prefWidth="150.0" text="Change file info" />
+                        <Button layoutX="425.0" layoutY="219.0" mnemonicParsing="false" onAction="#addFile" prefHeight="25.0" prefWidth="150.0" text="Create file" />
+                        <ComboBox fx:id="myCourseBox" layoutX="263.0" layoutY="45.0" onAction="#PrintFolders" prefWidth="150.0" />
+                        <Label layoutX="263.0" layoutY="18.0" text="Courses" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab onSelectionChanged="#printAccountInfo" text="Account">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="accountInfo" layoutX="14.0" layoutY="14.0" prefHeight="191.0" prefWidth="342.0" />
+                        <Label layoutX="364.0" layoutY="14.0" prefHeight="17.0" prefWidth="186.0" text="Login" />
+                        <TextField fx:id="changeInfoLogin" layoutX="364.0" layoutY="31.0" prefHeight="25.0" prefWidth="187.0" />
+                        <Label layoutX="365.0" layoutY="64.0" prefHeight="17.0" prefWidth="180.0" text="Email" />
+                        <TextField fx:id="changeInfoEmail" layoutX="362.0" layoutY="81.0" prefHeight="25.0" prefWidth="187.0" />
+                        <Label fx:id="labelPhone" layoutX="366.0" layoutY="161.0" prefHeight="17.0" prefWidth="182.0" text="Phone Number" />
+                        <TextField fx:id="changeInfoPhoneAndName" layoutX="362.0" layoutY="178.0" prefHeight="25.0" prefWidth="187.0" />
+                        <Label layoutX="363.0" layoutY="110.0" prefHeight="17.0" prefWidth="184.0" text="Password" />
+                        <PasswordField fx:id="changeInfoPsw" layoutX="364.0" layoutY="127.0" prefHeight="25.0" prefWidth="187.0" />
+                        <Button fx:id="ChangeInfoBtn" layoutX="141.0" layoutY="227.0" mnemonicParsing="false" onAction="#ChangeInfo" prefHeight="25.0" prefWidth="88.0" text="Change Info" />
+                        <Label layoutX="14.0" layoutY="206.0" prefHeight="17.0" prefWidth="89.0" text="Delete Account" />
+                        <Button layoutX="14.0" layoutY="227.0" mnemonicParsing="false" onAction="#deleteAccount" prefHeight="25.0" prefWidth="71.0" text="Delete" />
+                        <Label fx:id="nameLabel" layoutX="365.0" layoutY="161.0" prefHeight="17.0" prefWidth="155.0" text="Name" />
+                        <Label fx:id="surnameLabel" layoutX="362.0" layoutY="206.0" prefHeight="17.0" prefWidth="174.0" text="Surname" />
+                        <TextField fx:id="changeInfoSurname" layoutX="362.0" layoutY="223.0" prefHeight="25.0" prefWidth="189.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
